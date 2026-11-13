@@ -34,3 +34,8 @@ The first two sit under the US$10 gate for a pilot of 28 (about US$3 to 4 at 3 a
 - **AI-model disclosure:** a generated person is an AI-generated image; EU/UK advertising and platform rules lean toward labelling it, so the label (where, what words) is decided before the first image ships, not after.
 
 Not done: any image view beyond the 40; no per-stone or metal classification; prices not checked against the vendors.
+
+## Added 2026-11-13 night: source sizes, coverage, what sample supports a per-family claim (US$0, computed from `data/dataset_2485.csv`)
+- Best source long edge, new codes (2,478): under 1,000 px 338; 1,000-1,499 515; 1,500-1,999 858; 2,000-2,999 484; 3,000+ 283. Every code has at least one source image (0 without).
+- Cutout vs original: no cutouts exist for these codes (`cutout_present` false for all); every source is the original photograph, so a lifestyle pass starts from originals and any cutout would be a paid step first. 1,996 of 2,485 carry a proposed price; all 2,478 new codes exist in Medusa (published state not separately counted here).
+- Per-family claim: 24 families, smallest 6 SKUs, median 72. A pass rate within +/-15 points at 95% needs about 43 judged images per family, about 1,030 for all 24; the 28-image pilot supports no per-family rate. A per-letter claim (5 groups) needs about 215.
