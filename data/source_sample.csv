@@ -1,0 +1,41 @@
+n,sku,family,zip,file,long_px,gross_g,difficulty
+1,E12312,earrings/mid,2023-002,E12312-1-(5.2g-(3.3).JPG,3264,5.2,medium
+2,E11262,earrings/mid,2023-002,E11262-6.5g-.jpg,2609,6.5,easy
+3,E12741,earrings/mid,2025,E12741-5.1G-(4.8).JPG,1600,5.1,easy
+4,R11239,rings/light,2023-002,R11239-2g-6.jpg,2904,2.0,easy
+5,R12682,rings/light,New 2024,R12682-4.2g-(3.8).jpg,640,4.2,medium
+6,R7521,rings/light,2023-002,R7521-6.5g-(5.3)-21$.jpg,1780,6.5,medium
+7,N10408,necklaces/heavy,2023-003,N10408-18.5g-.jpg,1280,18.5,hard
+8,N9145,necklaces/heavy,2023-001,N9145-46g-(15.5)-76$.JPG,1883,46.0,hard
+9,N8890,necklaces/heavy,New 2024,N8890-10.9g-(7.2).JPG,1600,12.0,hard
+10,N9440,necklaces/heavy,2023-004,N9440-3-8.7g-.JPG,1872,12.3,hard
+11,E11506,earrings/heavy,2023-002,E11506-1-13.4g-(10.6).JPG,3294,13.4,medium
+12,E11721B,earrings/heavy,2023-001,E11721B-9.6g-(8.2)-21.JPG,2319,9.6,medium
+13,E9912,earrings/heavy,2023-001,E9912-7.3g-(6).JPG,1500,7.3,easy
+14,E8480,earrings/heavy,2023-002,E8480-7g-(6)-11.5$.JPG,1558,7.0,easy
+15,N11256,necklaces/mid,New 2024,N11256-103-7.2G-(4.9).JPG,1024,7.2,hard
+16,N11262,necklaces/mid,2023-002,N11262-6.6g-.jpg,2358,6.6,hard
+17,N12204,necklaces/mid,2023-001,N12204-5.7g-(5.5).JPG,2858,5.7,hard
+18,RW7082,rings/heavy,2023-003,RW7082-9.5g-98שח.JPG,1733,9.5,easy
+19,R8549,rings/heavy,2023-001,R8549-11.2g-(9).JPG,1572,11.2,easy
+20,R12613,rings/heavy,New 2024,R12613-10.1G-(6.4).jpg,640,10.1,medium
+21,N11849,necklaces/light,2023-001,N11849-4.2g-7$.JPG,2093,4.2,hard
+22,N11258,necklaces/light,2023-002,N11258-2.9g-(RMT FANT)-6$.JPG,3982,2.9,hard
+23,N12689,necklaces/light,New 2024,N12689-3.7G-(3.3).jpg,640,3.7,hard
+24,N7165,necklaces/light,2023-001,N7165-3.2G-.JPG,2003,3.2,hard
+25,NL130,necklaces/unweighed,2023-001,NL130-4.5M-10.JPG,1600,,hard
+26,N7957,necklaces/unweighed,2023-002,N7957-36-17.1gr- 125שח.JPG,640,,hard
+27,BG8337A,bracelets/mid,2023-003,BG8337A-1-10.2g-.JPG,2163,10.2,hard
+28,E12330,earrings/light,New 2024,E12330-5-4.3G-)3.1(.JPG,1600,4.3,medium
+29,E7151,earrings/light,2023-002,E7151-2-2.8g-9.JPG,1426,2.8,easy
+30,E10299B,earrings/light,2023-004,E10299B-4.7g-.jpg,768,4.7,easy
+31,E12861,earrings/light,2026,E12861-3.7g-.jpeg,2874,3.7,medium
+32,R11251,rings/mid,2023-002,R11251-8.1g-.jpg,2398,8.1,easy
+33,R8848,rings/mid,2023-004,R8848-7.6g-(7.2).JPG,1758,7.6,easy
+34,R12509,rings/mid,New 2024,R12509-8.6G-(7.2).JPG,1024,8.6,easy
+35,BW5287,bracelets/heavy,2023-002,BW5287-22G-47$.JPG,2371,22.0,medium
+36,B4992,bracelets/unweighed,2023-002,B4992-9.7M-.jpg,696,,medium
+37,EL125,earrings/unweighed,2023-002,EL125-4.8M-10.5.JPG,1600,,easy
+38,BC7047,bracelets/light,2023-002,BC7047-2.2G-6.JPG,1210,2.2,easy
+39,RL111,rings/unweighed,2023-001,RL111-3.7M-8.JPG,1600,,easy
+40,SN3206,other/unweighed,2023-002,SN3206-TM.JPG,640,,hard

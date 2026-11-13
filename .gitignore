@@ -1,3 +1,4 @@
 data/*.csv filter=
 data/tmp/
 node_modules/
+.scratch/
