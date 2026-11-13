@@ -26,3 +26,7 @@ The pool is the **2,478 new codes** of the 2024-onwards import (`data/pool_2478.
 | Folder the code first appears in | 2023: 1,982; "New 2024": 290; 2026: 125; 2025: 81 |
 
 **Dating settled (David, 2026-11-13):** the pool is the last import batch, the additional images added 2 days earlier (2026-11-11), which are still to be processed with shadows. The import is the introduction event, so all **2,478 are eligible**; the photo-folder names (1,982 say 2023) are photography dates and do not count. Not yet done: families beyond the code letter (E/N/R/B only separate earrings, necklaces, rings, bracelets, not studs from hoops), difficulty, the 30 to 50 source sample, the pilot allocation, and the price table.
+
+## After L3 (David, 2026-11-13 11:06: the rule is soft, 2023 counts)
+
+**Eligible: 2,485** = 2,478 new codes + 7 legacy SKUs dated 2023 in the databases. Caveat in one line: the new codes are dated by photo folder, not by an introduction date, and 2023-dated legacy material beyond those 7 (images in 2023 folders for older codes) is not separated out here.
