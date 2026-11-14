@@ -47,3 +47,24 @@ Not done: any image view beyond the 40; no per-stone or metal classification; pr
 - **Of the 2,485 eligible, 2,478 are draft (unpublished) and 7 are published** (the legacy 2023 SKUs, cohort A). The 2,478 new codes sit in cohort B 1,996 (priced), C 240 (no price and no weight) and D 242 (refused by the per-gram floor), so **none of them is live**, and 482 of them have no price. By family, published: earrings 1, necklaces 4, bracelets 2, rings 0, watches 0, other 0; the rest are draft.
 - **Pilot, 28 images, by form** (family share of the eligible population, split inside each family by the forms seen in the 40-SKU read): earrings 9 = 8 hook drops + 1 stud; necklaces 8 = 6 pendants on a chain + 1 collar or statement piece + 1 long station chain; rings 6; bracelets 3; watches 1; other 1 (a necklace-form piece). Hoops and huggies get **no slot**: none appeared in 40, so the pilot cannot say anything about them, and an assumption that they are a family would be wrong on this data. Pick within each form from the easy and hard poles of the 40-SKU difficulty read, so the failure modes show.
 - Every figure about forms is an extrapolation from 40 SKUs by one reader; the 2,485 form split is not measured and would take a paid image pass (stop-list).
+
+## The source read raised to 220 (cs, 2026-11-14, brief item 5)
+
+**Number used: 220 pieces read by eye** (the first 40, one random draw seed 13, plus 180 more, seed 29, drawn inside each worn-location, 9 contact sheets of 20; one reader, one pass; `scripts/sample2.py`, `scripts/forms2.py`, `data/source_sample2.csv`). US$0.
+
+| Worn-location (code letter) | Read | Forms seen |
+|---|---|---|
+| earrings | 92 | drop on a hook 80, hoop 4, stud 4, post with drop 4 |
+| necklaces | 53 | pendant on a chain 37, collar or statement 9, station chain 7 |
+| rings | 40 | ring 39, one that is a bangle |
+| bracelets | 24 | bracelet 14, cuff or bangle 5, **necklace-form 3, loose pendant 1, clasp charm 1** |
+| watches | 5 | watch 5 |
+| other | 6 | pendant on a chain 3, drop earrings 1, loose pendant or brooch 2 |
+
+**Present or absent.** Hoops: **present, about 4% of earrings** (4 of 92). Huggies: **not seen in 92 earrings, so below 3.3% at 95%** (rule of three); absent for the template set, not proven zero. Studs 4 of 92, posts with a drop 4 of 92: both small, both present. Long station chains and beaded wire necklaces are one form (7 of 53 necklaces).
+
+**Where the data overrules D167.** The code letter is not always the worn-location: **5 of 24 pieces in the bracelet letter are not bracelets** (3 necklace-form, 1 loose pendant, 1 clasp charm), 1 of 40 in the ring letter is a bangle, and 4 of 6 in the "other" letters are earrings or necklaces. So "family from the code letter" is a good first cut for earrings, necklaces and rings, **weak for bracelets (about 1 in 5 wrong)**; the template set should be chosen by form, and the 241 bracelet-letter SKUs cannot be assumed to be bracelets.
+
+**Sizing.** About 43 judged pieces per family gives ±15 points at 95%: met for earrings (92) and necklaces (53), just short for rings (40), not met for bracelets (24), watches (5), other (6). Not sufficient for per-form claims inside a family beyond the big forms (drop 87% of earrings, pendant 70% of necklaces).
+
+**Pilot of 28.** Unchanged in shape: earrings 9 (8 drop on a hook, 1 hoop in place of the stud; hoops are 4% so one slot is generous), necklaces 8 (6 pendant, 1 collar, 1 station chain), rings 6, bracelets 3 (pick by eye, not by letter), watches 1, other 1.
