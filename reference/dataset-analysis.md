@@ -2,23 +2,26 @@
 
 Pool: **2,485 eligible** (2,478 new codes + 7 legacy 2023). Dated by photo folder, not by an introduction date (caveat from L3). `data/dataset_2485.csv`, one row per SKU, rebuilt by `scripts/dataset.py` then `scripts/sample.py`.
 
-## Families (derived, L4)
-| Letter | SKUs | Share |
+## Families (D167: where the piece is worn; supersedes L4's weight bands)
+| Family | SKUs | Share |
 |---|---|---|
-| Earrings E | 843 | 33.9% (light 272 / mid 250 / heavy 265 / unweighed 56) |
-| Necklaces N | 759 | 30.5% |
-| Rings R | 534 | 21.5% |
-| Bracelets B | 241 | 9.7% |
-| Watches W | 49 | 2.0% |
-| Other | 59 | 2.4% |
+| Earrings | 843 | 33.9% |
+| Necklaces | 759 | 30.5% |
+| Rings | 534 | 21.5% |
+| Bracelets | 241 | 9.7% |
+| Watches | 49 | 2.0% |
+| Other (S, A, P, M, C codes) | 59 | 2.4% |
+
+**Six families is all the records support.** No type, description, metal or stone field exists for the new codes (`supplier_description` is empty for all 2,485) and the shop's own categories stop at Earrings, Necklaces and so on, so studs vs hoops, pendant vs chain are **not in the data**. The form split below is read from pictures: 40 SKUs, one reader, one pass. Weight is an attribute (`gross_g`), not a family; the old weight band stays as `stratum` in the CSV only because it stratified the sample.
+Forms seen in the 40: earrings, drop on a hook 11 of 12, stud 1, hoop 0, huggie 0; necklaces, pendant on a chain 10 of 14, collar or statement piece 3, long station chain 1; rings 10; bracelets 3; a clasp charm that is not worn directly 1 (BC7047). So the sample suggests about 8 to 9 templates, not 13, and the catalogue is mostly hook drops, pendants and rings; a stud or hoop template would serve a small minority. To size the forms across the 2,485 needs an image pass over all of them, which is paid and a stop-list item (US$0 here).
 
 Weight is present for 2,238 of 2,478 new codes; the 7 legacy SKUs have no weight, image or price here. No type, metal or stone field exists for the new codes, so studs vs hoops, silver vs gold and stone type are **not** derivable from the data: only from images.
 
-## Source sample: 40 SKUs, seed 13, stratified on family (`data/source_sample.csv`), largest source image each. Looked at all 40.
+## Source sample: 40 SKUs, seed 13, stratified on the earlier finer stratum (family x weight band), which still sums to the worn-location families (`data/source_sample.csv`), largest source image each. Looked at all 40.
 Visual difficulty (my read, one pass, not a second reader): **easy 15 (38%)** rigid, compact, opaque; **medium 10 (25%)** stones, enamel or glass set in rigid pieces; **hard 15 (38%)** fine chains and long drape (13 of the 14 necklaces in the sample), transparency, a leather cord with charms. All 40 are silver pieces on a plain or slightly tinted white; none is gold, none is on a model, backgrounds range from clean white to a grey or teal cast (R7521) and a few have a floor shadow. Best source long edge: 286 to 4,608 px, median 1,600; 853 of 2,478 under 1,500 px.
 
 ## Pilot allocation: 28 images, weighted on the eligible population
-Earrings 9, necklaces 8, rings 6, bracelets 3, watches 1, other 1 (unrounded 9.5 / 8.6 / 6.0 / 2.7 / 0.6 / 0.7). **Too thin to read as a result:** 28 images over 24 families is about one per family, and the sample has 15 hard pieces of which 13 are necklaces; a pass rate on 8 necklaces carries no confidence interval worth quoting. It tests whether the approach works at all, not how often. Make the pilot's necklace and ring picks come from the hard and easy poles of the sample, so the failure modes show.
+Earrings 9, necklaces 8, rings 6, bracelets 3, watches 1, other 1 (unrounded 9.5 / 8.6 / 6.0 / 2.7 / 0.6 / 0.7). **Too thin to read as a result:** 28 images over 6 families is about 5 per family, and over the 8 to 9 forms about 3 each, and the sample has 15 hard pieces of which 13 are necklaces; a pass rate on 8 necklaces carries no confidence interval worth quoting. It tests whether the approach works at all, not how often. Make the pilot's necklace and ring picks come from the hard and easy poles of the sample, so the failure modes show.
 
 ## Expected cost per accepted image (vendor published prices, **unverified**, from memory, not checked this session)
 Assumption: 3 generations per accepted image (guessed; the pilot measures it). Excludes human review time.
@@ -38,4 +41,4 @@ Not done: any image view beyond the 40; no per-stone or metal classification; pr
 ## Added 2026-11-13 night: source sizes, coverage, what sample supports a per-family claim (US$0, computed from `data/dataset_2485.csv`)
 - Best source long edge, new codes (2,478): under 1,000 px 338; 1,000-1,499 515; 1,500-1,999 858; 2,000-2,999 484; 3,000+ 283. Every code has at least one source image (0 without).
 - Cutout vs original: no cutouts exist for these codes (`cutout_present` false for all); every source is the original photograph, so a lifestyle pass starts from originals and any cutout would be a paid step first. 1,996 of 2,485 carry a proposed price; all 2,478 new codes exist in Medusa (published state not separately counted here).
-- Per-family claim: 24 families, smallest 6 SKUs, median 72. A pass rate within +/-15 points at 95% needs about 43 judged images per family, about 1,030 for all 24; the 28-image pilot supports no per-family rate. A per-letter claim (5 groups) needs about 215.
+- Per-family claim (D167, 6 families, smallest 49 SKUs): a pass rate within +/-15 points at 95% needs about 43 judged images per family, about 260 for 6 families, about 390 for 9 forms; the 28-image pilot (about 5 per family, 3 per form) supports no per-family rate. Pilot first, then a 260-image run is the smallest that would.
