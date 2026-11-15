@@ -10,6 +10,8 @@ The ZJ lifestyle image programme: a shared set of AI-generated lifestyle images 
 
 What differs in this repo:
 
+- **`lim` is the paste word (David, 2026-11-15).** It is this repo's `bim`: David pastes `lim` and nothing else, and it is an **instruction** - fetch `origin/main` and read your own brief file now, including mid-round, because cp has pushed something for you. cs reads `briefs/for-side.md`, cl reads `briefs/for-life.md`; read only your own and never the other's. The word is deliberately not `bim`, which belongs to ZJ1's cc and cs, so a one-character slip cannot route a brief into the wrong lane. "lim?" asks whether there is anything to paste and to whom, answered in a word or two.
+
 - **Decision numbers are L1, L2, L3…** — never ZJ1's D-range, in either direction.
 - **Spend is US$0 until David has the numbers and has chosen an art direction** (David, 2026-11-13). No paid API call, no trial generation, not one image. The spend rule's US$10 threshold does not apply: the limit here is zero until he says otherwise.
 - **Art direction is a gate.** Three materially distinct concepts, David picks one, and no pilot production happens before he has.
