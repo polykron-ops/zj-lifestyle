@@ -1,5 +1,7 @@
 # cl — items 8 and 9: dating ladder and re-derived eligibility (2026-11-15)
 
+> **Superseded for numbers by `reference/cl-dating-measured.md`** (run on cs's measured EXIF and zip dates: 506 of 2,485 eligible). This file keeps the ladder's design and the folder-only provisional run.
+
 **Status: the ladder is built and proven; it has not been run on any real file.** Item 10's gate is unmet (no written confirmation that the AWS credentials are read-only on `zj1-images`; they were not used), and no source files or zip metadata are reachable here. The only real-data rung computable is the weakest one, from the repo's `first_folder`. Everything below about eligibility is therefore **provisional and rests on folder names**, which David's instruction ranks last.
 
 ## The ladder (`scripts/cl_dating.py`)
