@@ -1,0 +1,16 @@
+# cl — item 7, anomaly sweep (2026-11-15)
+
+Nothing fixed, nothing in cs's dataset changed. Script: `scripts/cl_sweep.py`. Ranked by how much each could change a decision.
+
+1. **Dating of the pool rests on the import batch (L2); the folder evidence points the other way.** 1,982 of the 2,478 new codes first appear under the top folder `תמונות 2023`, but **1,978 of those 1,982** sit in nested archives whose subfolder names carry earlier years (2012: 523, 2013: 656, 2014: 127, 2016: 220, 2018: 158, 2019: 85, 2020: 67, 2021: 9, 2022: 133; e.g. `תמונות 2023/תמונות2022/אוגוסט 2018/…/April 2015/4-11-13 new 2013`). That is 79.8% of the pool. Folder names are weak evidence (a parent folder can hold newer files), and L2/L3 already decided the import is the introduction event, so this disputes nothing; it says the pool may be mostly older product re-imported, which is the "legacy catalogue" the programme was named for and which `eligibility.md` says fails the 3-year rule. Logged for David.
+2. **E12600 is a data error that is also the only price outlier.** `gross_g` 1,225.2 g for an earring; its `price_basis` says 615.6 g (exactly half); proposed price US$882.96, the only SKU over US$500; best source 640 px. It sets the family maximum for weight (next is 109 g, EG10030, unpriced).
+3. **The producible population is 2,478, not 2,485.** The 7 legacy-2023 SKUs have no dimensions, weight, price or source in the dataset (`nodims` on all 7).
+4. **10 bracelet SKUs have sources under 400 px** (B8094A, B8095A/B, B8096A, B8097A/B and others; 286 to 382 px, in a `BEADS 2013` folder). No composite can use a 286 px source.
+5. **`category_code` does not isolate the bracelet-letter misfits.** Of 22 bracelet-letter reads, BA is 2 of 2 necklace-forms (14 BA SKUs in the pool), BC 1 of 1 clasp charm, plain B 2 of 18 not bracelets. n is tiny; a BA-first routing check is cheap but unproven.
+6. **dataset-analysis cites a gate that does not apply here.** Its cost table says the first two models "sit under the US$10 gate" and prices are "from memory, unverified", for models likely superseded; this repo's limit is US$0 until David chooses art direction. The figures should not be quoted.
+7. **`data/intro_dates.csv` has 31 rows with a blank SKU** (saphirim `wp_posts`, 2016-2019). Eligibility drops them, so no count is affected.
+8. **`.gitignore` line `data/*.csv filter=` is not valid ignore syntax,** and every CSV is committed despite the README saying not to commit what a script can rebuild.
+9. SKU `B6392A-3` is the only code with a hyphen suffix (legacy).
+
+**Swept and clean:** duplicate SKUs in dataset/pool/eligibility (0); dataset vs pool membership (only the 7 legacy); SKU letter vs family_letter vs category_code (0 mismatches); `unique_images` ≤ `source_images` (0 violations); non-positive weights (0); future or pre-2000 intro dates (0); reads vs dataset (220 reads, 0 overlap, 0 unknown SKUs, 0 family mismatches); arithmetic of cs's tables (family shares, 1,484/530/222/128/60/54 = 2,478, size bands, 220 reads, pilot 28, ±15 pt sample sizes, rule of three, cost table).
+**Not swept:** anything needing pixels or the ZJ1 inventory; the legacy databases behind eligibility.csv; briefs/for-side.md (not mine to read).

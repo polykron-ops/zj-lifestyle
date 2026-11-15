@@ -1,3 +1,4 @@
 # Open decisions for David (cl)
 
 - **2026-11-15 — pixel access for item 1.** The source images are not in cl's container. Options: (a) cs drops a read-only zip or path-free manifest (`sku, filename, zip, folder`) plus the best-source JPEGs for the 2,485 SKUs into a place cl can read; (b) David confirms the AWS credentials in cl's environment are meant for read-only access to the `zj1-images` Space (cl has not used them). Until then items 1 (pixel half), 2, 3 (alpha/geometry forms), 4, 5 (catalogue-image pages) and 6 (end-to-end proof) run only as far as metadata and text allow.
+- **2026-11-15 — pool dating (sweep item 1).** 1,978 of the 1,982 'תמונות 2023' SKUs sit in nested archives named 2012–2022 (79.8% of the pool). L2/L3 stand; question for David is whether the import date still serves as 'introduction' given that. See reference/cl-anomaly-sweep.md.

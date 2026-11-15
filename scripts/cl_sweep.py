@@ -1,0 +1,27 @@
+"""cl item 7: anomaly sweep over data/*.csv. US$0, read-only. Prints summaries only. Usage: python3 -I scripts/cl_sweep.py"""
+import csv, collections, re, statistics as st
+L = lambda p: list(csv.DictReader(open('data/' + p, encoding='utf8')))
+ds, pool, el, intro, s1, s2 = (L(x) for x in ('dataset_2485.csv', 'pool_2478.csv', 'eligibility.csv', 'intro_dates.csv', 'source_sample.csv', 'source_sample2.csv'))
+print('A dup skus: dataset', len(ds) - len({r['sku'] for r in ds}), 'pool', len(pool) - len({r['sku'] for r in pool}), 'elig', len(el) - len({r['sku'] for r in el}), 'intro', len(intro) - len({r['sku'] for r in intro}))
+print('B dataset-not-in-pool', len({r['sku'] for r in ds} - {r['sku'] for r in pool}), 'pool-not-in-dataset', len({r['sku'] for r in pool} - {r['sku'] for r in ds}))
+bad = [r['sku'] for r in ds if not re.fullmatch(r'[A-Z]{1,3}\d+[A-Z]{0,3}', r['sku'])]; print('C odd sku format', len(bad), bad[:8])
+lead = [r['sku'] for r in ds if r['sku'][0] != r['family_letter']]; print('D sku first letter != family_letter', len(lead), lead[:5])
+cc = [r['sku'] for r in ds if r['category_code'][0] != r['family_letter']]; print('E category_code first letter != family_letter', len(cc), cc[:5])
+sk = [r['sku'] for r in ds if re.fullmatch(r'[A-Z]+\d+', r['sku']) and r['sku'].rstrip('0123456789') != r['category_code'] and r['origin'] == 'new_2024']
+print('F sku letters != category_code (plain skus)', len(sk), sk[:6])
+g = [float(r['gross_g']) for r in ds if r['gross_g']]; print('G gross_g n', len(g), 'min/med/max', min(g), st.median(g), max(g), 'zero/neg', sum(x <= 0 for x in g), '>100g', sum(x > 100 for x in g))
+print('G2 gross_g by family median', {f: round(st.median([float(r['gross_g']) for r in ds if r['gross_g'] and r['family'] == f]), 1) for f in ('earrings', 'necklaces', 'rings', 'bracelets', 'watches', 'other')})
+big = sorted(((float(r['gross_g']), r['sku'], r['family']) for r in ds if r['gross_g']), reverse=True)[:5]; print('G3 top weights', big)
+su = [r['sku'] for r in ds if r['unique_images'] and int(r['unique_images']) > int(r['source_images'] or 0)]; print('H unique>source', len(su))
+pr = [r for r in ds if r['proposed_price'] and r['gross_g']]; ppg = [float(r['proposed_price']) / float(r['gross_g']) for r in pr]
+print('I price per g: n', len(ppg), 'min/med/max', round(min(ppg), 2), round(st.median(ppg), 2), round(max(ppg), 2)); print('I2 price w/o weight', sum(1 for r in ds if r['proposed_price'] and not r['gross_g']), 'weight w/o price', sum(1 for r in ds if r['gross_g'] and not r['proposed_price']))
+print('J price_basis', collections.Counter(re.sub(r'[\d.]+', '#', r['price_basis'])[:40] for r in ds).most_common(6))
+print('K intro_basis', dict(collections.Counter(r['intro_basis'] for r in ds)), 'created_in_medusa', dict(collections.Counter(r['created_in_medusa'] for r in ds)))
+d = [r['intro_date'] for r in el if r['intro_date']]; print('L eligibility dates min/max', min(d), max(d), 'future(>2026-11-15)', sum(x > '2026-11-15' for x in d), 'pre-2000', sum(x < '2000' for x in d), 'blank', sum(1 for r in el if not r['intro_date']))
+print('L2 eligible flag', dict(collections.Counter(r['eligible_last_3_years'] for r in el)), 'catalogue', dict(collections.Counter(r['catalogue'] for r in el)))
+print('M dataset legacy rows', [(r['sku'], r['family'], r['best_long_px'] or 'nodims', r['gross_g'] or 'noweight', r['proposed_price'] or 'noprice') for r in ds if r['origin'] != 'new_2024'][:7])
+print('N first_folder', collections.Counter(r['first_folder'].split('/')[0] for r in ds).most_common(6))
+rd = {x['sku']: x['form'] for x in s1 + s2}; print('O reads: sample1 rows', len(s1), 'sample2', len(s2), 'overlap', len({x['sku'] for x in s1} & {x['sku'] for x in s2}), 'blank form', sum(1 for v in rd.values() if not v.strip()), 'sku not in dataset', len(set(rd) - {r['sku'] for r in ds}))
+fam = {r['sku']: r for r in ds}; print('O2 sample family mismatch to dataset', sum(1 for x in s2 if fam[x['sku']]['family'] != x['family']))
+br = collections.Counter((fam[k]['category_code'], 'bracelet' if rd[k].startswith('bracelet') or 'cuff' in rd[k] else rd[k][:28]) for k in rd if k in fam and fam[k]['family_letter'] == 'B'); print('P bracelet-letter reads by category_code', sorted(br.items()))
+dim = [r['sku'] for r in ds if r['best_long_px'] and int(r['best_long_px']) < 400]; print('Q sources <400 px', len(dim), dim[:6])
