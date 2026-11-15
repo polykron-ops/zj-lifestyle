@@ -1,8 +1,10 @@
 """cl item 4, metadata-only. US$0. Population form counts = cs's 220 reads (one reader) extrapolated within each code-letter family; 'other' SKUs resolved by the L201 category_code proposal.
 Intervals are Wilson 95% on the within-family read share, scaled to family size: they cover sampling only, not reader error. Usage: python3 -I scripts/cl_template_plan.py"""
-import csv, collections, math
+import csv, collections, math, sys
 L = lambda p: list(csv.DictReader(open('data/' + p, encoding='utf8')))
-ds = L('dataset_2485.csv'); fam = {r['sku']: r['family'] for r in ds}
+ds_all = L('dataset_2485.csv'); fam = {r['sku']: r['family'] for r in ds_all}   # fam from the FULL dataset: cs's reads are over the full pool
+SEL = set(open(sys.argv[1]).read().split()) if len(sys.argv) > 1 else None   # optional: restrict the POPULATION to these SKUs (batch 1); the reads stay cs's 220
+ds = [r for r in ds_all if SEL is None or r['sku'] in SEL]
 MAP = {'earrings: drop on a hook': 'ear: drop on hook', 'earrings: post with drop': 'ear: post with drop', 'earrings: stud': 'ear: stud', 'earrings: hoop': 'ear: hoop',
        'necklace: pendant on a chain': 'neck: pendant on chain', 'necklace: collar or statement piece': 'neck: collar/statement', 'necklace: station chain': 'neck: station chain', 'necklace: long station chain': 'neck: station chain',
        'ring': 'hand: ring', 'bracelet': 'wrist: bracelet', 'bracelet: cuff or bangle': 'wrist: cuff/bangle', 'watch': 'wrist: watch',
@@ -11,7 +13,7 @@ reads = collections.defaultdict(list)
 for r in L('source_sample.csv') + L('source_sample2.csv'):
     if fam[r['sku']] != 'other': reads[fam[r['sku']]].append(MAP[r['form'].strip()])
 LET = {'E': 'earrings', 'N': 'necklaces', 'R': 'rings', 'B': 'bracelets', 'W': 'watches'}
-size = collections.Counter(fam.values())
+size = collections.Counter(r['family'] for r in ds)
 for r in ds:
     if fam[r['sku']] == 'other':
         c = r['category_code']; size['loose' if c[0] == 'P' else 'unres' if not (c[0] in 'AS' and c[1] in 'ENRB') else {'E': 'earrings', 'N': 'necklaces', 'R': 'rings', 'B': 'bracelets'}[c[1]]] += 1
@@ -23,7 +25,7 @@ for f, v in reads.items():
     for form, k in collections.Counter(v).items():
         lo, hi = wilson(k, len(v)); est[form] = est.get(form, [0, 0, 0]); est[form][0] += k / len(v) * size[f]; est[form][1] += lo * size[f]; est[form][2] += hi * size[f]
 s0 = est.setdefault('still: loose pendant/charm', [0, 0, 0]); s0[0] += size['loose']; s0[1] += size['loose']; s0[2] += size['loose']  # 8 by code + read-based strays from the bracelet letter
-N = 2485; tot = sum(v[0] for v in est.values()) + size['unres']
+N = len(ds); tot = sum(v[0] for v in est.values()) + size['unres']
 GROUP = {'ear': 'C1 ear profile', 'neck': 'C2 neckline', 'hand': 'C3 hand', 'wrist': 'C4 wrist', 'still': 'C5 still life'}
 print('| Form | est. SKUs | 95% range | share | composition |\n|---|---|---|---|---|')
 rows = sorted(est.items(), key=lambda x: -x[1][0])
